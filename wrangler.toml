@@ -1,2 +1,2 @@
 name = "secretsanta"
-
+compatibility_flags = [ "nodejs_compat" ]
