@@ -29,7 +29,7 @@ export default function Home() {
         } else {
             setId(_id)
             try {
-                const res = await fetch(`/aboutParticipant`, {
+                const res = await fetch(`/api/aboutParticipant`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id: _id }),
@@ -122,7 +122,7 @@ export default function Home() {
                           onClick={async () => {
                             setIsRevealing(true);
                             try {
-                              const res = await fetch(`/participantResult`, {
+                              const res = await fetch(`/api/participantResult`, {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({ id }),
@@ -136,7 +136,7 @@ export default function Home() {
                                 await setSecretName(data.secretName);
                                 await setScreen("RESULT");
                                 try {
-                                  const res = await fetch(`/acknowledge`, {
+                                  const res = await fetch(`/api/acknowledge`, {
                                     method: "POST",
                                     headers: { "Content-Type": "application/json" },
                                     body: JSON.stringify({ id }),
