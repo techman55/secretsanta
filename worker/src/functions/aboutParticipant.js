@@ -1,7 +1,5 @@
-import _adminAuth from "@/common/_adminAuth";
-import connectDB from "@/common/connectDB";
-
-
+import _adminAuth from "../common/_adminAuth.js";
+import connectDB from "../common/connectDB.js";
 
 export async function onRequest({request, env}) {
 
@@ -13,7 +11,7 @@ export async function onRequest({request, env}) {
     if (!((participant||{}).id)) {
         return new Response(JSON.stringify({
             found: false
-        }), { headers: { "Content-Type": "text/json" } });
+        }), { headers: { "Content-Type": "application/json" } });
     }
 
     return new Response(JSON.stringify({
@@ -21,5 +19,5 @@ export async function onRequest({request, env}) {
         name: participant.name,
         isRandomized: !!participant.secret,
         viewed: participant.viewed
-    }), { headers: { "Content-Type": "text/json" } });
+    }), { headers: { "Content-Type": "application/json" } });
 }

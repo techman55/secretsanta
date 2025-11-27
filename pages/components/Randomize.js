@@ -26,7 +26,7 @@ export default function RandomizeButton() {
     }
 
     try {
-      const res = await fetch(`/randomize?password=${password}`, {
+      const res = await fetch(`/api/randomize?password=${password}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),

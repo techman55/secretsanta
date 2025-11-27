@@ -1,7 +1,5 @@
-import _adminAuth from "@/common/_adminAuth";
-import connectDB from "@/common/connectDB";
-
-
+import _adminAuth from "../common/_adminAuth.js";
+import connectDB from "../common/connectDB.js";
 
 export async function onRequest({request, env}) {
 
@@ -14,5 +12,5 @@ export async function onRequest({request, env}) {
 
     return new Response(JSON.stringify({
         status: true
-    }), { headers: { "Content-Type": "text/json" } });
+    }), { headers: { "Content-Type": "application/json" } });
 }

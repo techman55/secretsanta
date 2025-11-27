@@ -1,5 +1,5 @@
-import _adminAuth from "@/common/_adminAuth";
-import connectDB from "@/common/connectDB";
+import _adminAuth from "../common/_adminAuth.js";
+import connectDB from "../common/connectDB.js";
 
 export async function onRequest({ request, params, env }) {
   if (!_adminAuth(request, env)) {
@@ -18,7 +18,6 @@ export async function onRequest({ request, params, env }) {
   const participants = await participantsCollection.find({}).toArray();
 
   if (!participants || participants.length < 2) {
-    // Not enough participants to randomize; just return current state
     return new Response(
       JSON.stringify({
         auth: true,
@@ -28,7 +27,6 @@ export async function onRequest({ request, params, env }) {
     );
   }
 
-  // Generate a random derangement (no one gets themselves)
   const n = participants.length;
   const indices = Array.from({ length: n }, (_, i) => i);
 
@@ -56,13 +54,10 @@ export async function onRequest({ request, params, env }) {
     attempts++;
   }
 
-  // Fallback: simple rotate if we somehow failed to find a derangement
   if (!assignment) {
     assignment = indices.map((_, i) => (i + 1) % n);
   }
 
-  // Build bulk updates so that each participant's "secret" field
-  // holds the id of the person they are gifting to.
   const bulkOps = participants.map((participant, idx) => {
     const recipient = participants[assignment[idx]];
 

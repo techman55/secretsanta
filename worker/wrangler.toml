@@ -1,0 +1,14 @@
+name = "secretsanta-worker"
+compatibility_date = "2025-11-27"
+compatibility_flags = ["nodejs_compat_v2"]
+
+# Route to bind this Worker to. Adjust or remove if you will set routes in the Cloudflare dashboard.
+routes = [
+  { pattern = "santa.jackhubbard.com/api*", zone_name = "jackhubbard.com" }
+]
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true

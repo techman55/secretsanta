@@ -29,7 +29,7 @@ export default function LoginField() {
         setError("");
 
         try {
-            const res = await fetch(`/checkAdminLogin?password=${hashedPassword}`, {
+            const res = await fetch(`/api/checkAdminLogin?password=${hashedPassword}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({}),

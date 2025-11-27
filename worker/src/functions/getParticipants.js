@@ -1,13 +1,11 @@
-import _adminAuth from "@/common/_adminAuth";
-import connectDB from "@/common/connectDB";
-
-
+import _adminAuth from "../common/_adminAuth.js";
+import connectDB from "../common/connectDB.js";
 
 export async function onRequest({request, params, env}) {
     if (!_adminAuth(request, env)) {
         return new Response(JSON.stringify({
             auth: false
-        }), { headers: { "Content-Type": "text/json" } });
+        }), { headers: { "Content-Type": "application/json" } });
     }
     const client = await connectDB(env);
     const db = client.db("secretsanta")
@@ -16,5 +14,5 @@ export async function onRequest({request, params, env}) {
     return new Response(JSON.stringify({
         auth: true,
         participants
-    }), { headers: { "Content-Type": "text/json" } });
+    }), { headers: { "Content-Type": "application/json" } });
 }

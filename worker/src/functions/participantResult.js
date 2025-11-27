@@ -1,7 +1,5 @@
-import _adminAuth from "@/common/_adminAuth";
-import connectDB from "@/common/connectDB";
-
-
+import _adminAuth from "../common/_adminAuth.js";
+import connectDB from "../common/connectDB.js";
 
 export async function onRequest({request, env}) {
 
@@ -13,12 +11,12 @@ export async function onRequest({request, env}) {
     if (!((participant||{}).id) || !participant.secret || participant.viewed) {
         return new Response(JSON.stringify({
             status: false
-        }), { headers: { "Content-Type": "text/json" } });
+        }), { headers: { "Content-Type": "application/json" } });
     }
     const secret = await db.collection("participants").findOne({id: participant.secret})
 
     return new Response(JSON.stringify({
         status: true,
         secretName: secret.name
-    }), { headers: { "Content-Type": "text/json" } });
+    }), { headers: { "Content-Type": "application/json" } });
 }

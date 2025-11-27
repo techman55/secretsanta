@@ -28,7 +28,7 @@ export default function PersonEditor() {
         setIsLoading(true);
 
         try {
-            const res = await fetch(`/getParticipants?password=${password}`, {
+            const res = await fetch(`/api/getParticipants?password=${password}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({  }),
@@ -124,7 +124,7 @@ export default function PersonEditor() {
                               {viewed ? "Viewed" : "Not Viewed"}
                             </Badge>
                             <button onClick={async () => {
-                                const res = await fetch(`/deleteParticipant?password=${password}`, {
+                                const res = await fetch(`/api/deleteParticipant?password=${password}`, {
                                     method: "POST",
                                     headers: { "Content-Type": "application/json" },
                                     body: JSON.stringify({ id: participant.id }),
@@ -197,7 +197,7 @@ export default function PersonEditor() {
                       );
                       try {
                         const res = await fetch(
-                          `/addParticipant?password=${password}`,
+                          `/api/addParticipant?password=${password}`,
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
