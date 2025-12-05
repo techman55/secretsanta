@@ -104,6 +104,7 @@ export default function PersonEditor() {
                   {participants.map((participant) => {
                     const assigned = !!participant.secret;
                     const viewed = !!participant.viewed;
+                    const boxNo = !!participant.box;
                     const link =
                       participant.id === "pending"
                         ? "Pending"
@@ -123,6 +124,9 @@ export default function PersonEditor() {
                             <Badge variant={viewed ? "default" : "outline"}>
                               {viewed ? "Viewed" : "Not Viewed"}
                             </Badge>
+                              <Badge variant={boxNo ? "default" : "outline"}>
+                                  {boxNo ? "Box Assigned" : "No Box No."}
+                              </Badge>
                             <button onClick={async () => {
                                 const res = await fetch(`/api/deleteParticipant?password=${password}`, {
                                     method: "POST",
@@ -235,6 +239,24 @@ export default function PersonEditor() {
 
             <RandomizeButton/>
         </Card>
+
+
+
+
+          <Card className="mt-12 w-full max-w-2xl">
+              <CardHeader>
+                  <div className="flex items-center justify-between gap-2">
+                      <div>
+                          <CardTitle>Game Day Tools</CardTitle>
+                          <CardDescription>
+                              Run your Secret Santa.
+                          </CardDescription>
+                      </div>
+                  </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button onClick={() => { setScreen("BOX") }}>Start Box Selection</Button>
+              </CardContent></Card>
       </div>
     );
 }

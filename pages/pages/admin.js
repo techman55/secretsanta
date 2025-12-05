@@ -3,6 +3,7 @@ import LoginField from "@/components/LoginField";
 import PersonEditor from "@/components/PersonEditor";
 import LogoutButton from "@/components/Logout";
 import Head from "next/head";
+import {BoxSelect} from "lucide-react";
 
 export const GlobalContext = createContext(null);
 
@@ -26,7 +27,7 @@ export default function Home() {
         <div className={"fixed -z-10 w-[100vw] h-[100vh] bg-striped top-0 left-0"}></div>
       <div className={" min-h-[100vh] min-w-[100vw] p-8 relative"}>
 
-          {screen !== "LOGIN" && <LogoutButton/>}
+        {screen !== "LOGIN" && <LogoutButton/>}
         {screen === "LOGIN" && (
           <div>
             <LoginField/>
@@ -34,6 +35,9 @@ export default function Home() {
         )}
         {screen === "ADMIN" && <div>
             <PersonEditor/>
+        </div>}
+        {screen === "BOX" && <div>
+          <BoxSelect/>
         </div>}
       </div>
     </GlobalContext.Provider>
