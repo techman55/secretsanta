@@ -1,6 +1,7 @@
 name = "secretsanta-worker"
 compatibility_date = "2025-11-27"
 compatibility_flags = ["nodejs_compat_v2"]
+main = "src/index.js"
 
 # Route to bind this Worker to. Adjust or remove if you will set routes in the Cloudflare dashboard.
 routes = [
