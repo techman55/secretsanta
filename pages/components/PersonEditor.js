@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import RandomizeButton from "@/components/Randomize";
+import {AssignBoxNumbersButton} from "@/components/AssignBoxes.js";
 
 
 export default function PersonEditor() {
@@ -63,7 +64,7 @@ export default function PersonEditor() {
     }
 
     return (
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center flex-col">
           {(isLoading && participants) && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
                   <div className="flex flex-col items-center gap-4">
@@ -238,6 +239,7 @@ export default function PersonEditor() {
           </CardFooter>
 
             <RandomizeButton/>
+            <AssignBoxNumbersButton/>
         </Card>
 
 
