@@ -8,6 +8,7 @@ export default function BoxSelect() {
   const { participants } = useContext(GlobalContext);
 
   const boxedParticipants = useMemo(() => {
+    console.log(participants)
     if (!participants || participants.length === 0) return [];
     return [...participants]
       .filter((p) => p.box != null && p.box !== "" && p.box !== false)
