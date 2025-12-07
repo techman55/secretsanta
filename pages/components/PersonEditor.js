@@ -64,7 +64,7 @@ export default function PersonEditor() {
     }
 
     return (
-      <div className="w-full flex justify-center flex-col">
+      <div className="w-full flex justify-center place-items-center flex-col">
           {(isLoading && participants) && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
                   <div className="flex flex-col items-center gap-4">
@@ -245,7 +245,7 @@ export default function PersonEditor() {
 
 
 
-          <Card className="mt-12 w-full max-w-2xl">
+          <Card className="mt-12 w-full ">
               <CardHeader>
                   <div className="flex items-center justify-between gap-2">
                       <div>

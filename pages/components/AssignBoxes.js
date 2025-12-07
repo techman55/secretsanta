@@ -59,17 +59,7 @@ export function AssignBoxNumbersButton() {
           type="button"
           variant="destructive"
           size="lg"
-          className={`w-full max-w-md font-semibold h-[4em] border-[6px]`}
-          style={
-            !waiting_for_server && !not_enough_participants && hasRandomized
-              ? {
-                  borderImage:
-                    "repeating-linear-gradient(45deg, red 0 10px, white 10px 20px) 1",
-                  borderStyle: "solid",
-                  borderWidth: "6px",
-                }
-              : {}
-          }
+          className={`w-full max-w-md font-semibold`}
           disabled={not_enough_participants || !hasRandomized || waiting_for_server}
           onClick={handleAssignBoxes}
         >

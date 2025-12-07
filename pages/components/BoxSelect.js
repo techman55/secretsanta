@@ -58,7 +58,7 @@ export default function BoxSelect() {
   }
 
   return (
-    <div className="w-full flex justify-center mt-8">
+      <div className="w-full flex justify-center place-items-center flex-col">
       <Card className="w-full max-w-xl bg-gradient-to-br from-red-700 via-red-800 to-emerald-900 text-red-50 border border-red-500/60 shadow-xl">
         <CardHeader className="pb-4">
           <CardTitle className="text-center text-2xl md:text-3xl">
