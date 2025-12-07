@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../pages/admin";
-import { Button } from "ui/button.jsx";
+import { Button } from "@/components/ui/button";
 
 export function AssignBoxNumbersButton() {
   const { password, setScreen, participants, setParticipants } = useContext(GlobalContext);
